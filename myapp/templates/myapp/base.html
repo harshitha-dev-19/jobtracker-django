@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TrackHire</title>
+    <style>
+
+    body{
+        background:linear-gradient(to right,rgb(101, 210, 246),beige);
+    }
+
+    h1{
+        text-align: center;
+    }
+
+    .container{
+        color: blue;
+        font-family: cursive;
+        text-align: center;
+        height:350px;
+        width:350px;
+        margin:  auto;
+        
+        
+    }  
+    
+    input{
+        border: none;
+        border-bottom: 2px solid gray;
+        padding : 8px;
+        width :250px;
+        outline: none;
+        font-size: 16px;
+    }
+
+    input:focus{
+        border-bottom: 2px solid blue;
+    }
+    
+    button{
+        border: none;
+        height: 35px;
+        width:160px;
+        background-color: beige;
+    }
+    button:hover{
+        background-color: blue;
+        color: white;
+    }
+
+    a:hover{
+       color: red;
+    }
+    
+    .job-container{
+        width:50%;
+        margin: auto;
+    }
+
+    .filter-form{
+        margin-bottom: 20px;
+    }
+
+    select{
+        height:35px;
+        width:160px;
+        background-color: beige;
+        border: none;
+    }
+
+    select:hover{
+        background-color: blue;
+        color: white;
+    }
+
+    .links{
+        display: flex;
+        justify-content: center;
+        gap:160px;
+
+    }
+
+    .search{
+        background-color: beige;
+    }
+
+    .form{
+        text-align: center;
+    }
+    .button0{
+        border-radius: 25px;
+        background-color: yellow;
+    }
+    </style>
+</head>
+<body>
+
+<h1>TrackHire</h1>
+<div class="links">
+{% if user.is_authenticated%}
+<a href="{% url 'job_list' %}"><button class="button0">HOME</button></a>
+<a href="{% url 'add_job' %}"><button class="button0">ADD JOB</button></a>
+<a href="{% url 'logout'%}"><button class="button0">LOGOUT</button></a>
+{% else %}
+<h2>Welcome !!!</h2>
+{% endif %}
+</div>
+<hr>
+
+{% block content %}
+
+
+{% endblock %}
+
+</body>
+</html>

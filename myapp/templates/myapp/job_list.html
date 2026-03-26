@@ -1,0 +1,38 @@
+{% extends 'myapp/base.html' %}
+
+{% block content %}
+<div class="job-container">
+<form method="GET" class="filter-form">
+    <input type="text" name="q" placeholder="Search company" class="search">
+
+    <select name="status">
+        <option value="">All</option>
+        <option value="Applied">Applied</option>
+        <option value="Interview">Interview</option>
+        <option value="Rejected">Rejected</option>
+        <option value="Offer">Offer</option>
+    </select>
+
+    <button type="submit">Filter</button>
+</form>
+
+<h3>Statistics : </h3>
+<ul type="none">
+    <li>Total: {{ total }}</li>
+    <li>Applied: {{ applied }}</li>
+    <li>Interview: {{ interview }}</li>
+    <li>Offer: {{ offer }}</li>
+    <li>Rejected: {{ rejected }}</li>
+</ul>
+<hr>
+<ul type="none">
+{% for job in jobs %}
+    <li>
+        {{ job.company }} - {{ job.role }} - {{ job.status }}
+        | <a href="{% url 'update_job' job.id %}">Edit</a>
+        | <a href="{% url 'delete_job' job.id %}">Delete</a>
+    </li>
+{% endfor %}
+</ul>
+</div>
+{% endblock %}
