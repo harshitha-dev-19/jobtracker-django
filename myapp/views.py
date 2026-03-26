@@ -1,11 +1,14 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Job
 from .forms import JobForm
-
+from django import Httpresponse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.contrib import messages
 
+
+def home(request):
+    return Httpresponse("welcome to my app!")
 
 def register(request):
     if request.method == 'POST':
