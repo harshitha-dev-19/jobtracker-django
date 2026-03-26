@@ -7,8 +7,6 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 
 
-def home(request):
-    return Httpresponse("welcome to my app!")
 
 def register(request):
     if request.method == 'POST':
