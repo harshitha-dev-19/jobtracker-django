@@ -9,7 +9,7 @@ class JobForm(forms.ModelForm):
     def clean_status(self):
         status = self.cleaned_data.get('status')
 
-        valid_status = ['Applied', 'Interview', 'Rejected', 'Selected']
+        valid_status = ['Applied', 'Interview', 'Rejected', 'Selected','Offer','applied','interview','rejected','selected','offer']
 
         if status not in valid_status:
             raise forms.ValidationError("Invalid status selected")
